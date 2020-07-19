@@ -2,12 +2,12 @@
 
 import React, { Component } from 'react'
 import Profile from '../profilecard/profilecard'
+import '../hero/hero.css'
 import {
   Container,
   Accordion,
   Alert,
   Modal,
-  Button,
   Card,
   Badge
 } from 'react-bootstrap';
@@ -26,7 +26,7 @@ export default class hero extends Component {
     super(props)
     this.state = {
       districtdata: [],
-      parties: [{PARTY_NAME:'First select the district', PARTY_ID:0}],
+      parties: [{PARTY_NAME:'පලමුව දිස්ත්‍රික්කය තෝරන්න', PARTY_ID:0}],
       //district selection
       selectedDID: 0,
       selectedDNAME: '',
@@ -184,14 +184,8 @@ export default class hero extends Component {
           <div className="container">
             <h1 className="display-4">චන්ද අපේක්ශකයන් පිලිබද නිවැරදි තොරතුරු දැනගනිමු</h1>
             <p className="lead">Powered By Janawarama API</p>
-          </div>
-        </div>
-
-        <div className="container">
-          <div className="row">
-            <div className="col-sm">
-
-              <div className="dropdown">
+            <div className="btn-group">
+            <div className="dropdown">
                 <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-arrow-down-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-9.5 3h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v2.793L5.854 5.146a.5.5 0 1 0-.708.708L9.293 10H6.5a.5.5 0 0 0 0 1z" />
@@ -215,10 +209,6 @@ export default class hero extends Component {
 
               </div>
 
-
-
-            </div>
-            <div className="col-sm">
               <div className="dropdown">
 
                 <button  className="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -242,6 +232,11 @@ export default class hero extends Component {
 
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="row">
             <div className="col-sm">
               {Profile}
 
@@ -252,11 +247,8 @@ export default class hero extends Component {
                     this.state.partyMembers.map(
                       (member) => (
                         <div>
-                          <Alert onClick={() => this.handleOpen(member)} key={member.C_ID} variant='primary'>
-                            {member.C_NUMBER}
-                            <Alert key={member.C_ID} variant='success'>
-                              {member.C_NAME}
-                            </Alert>
+                          <Alert cla onClick={() => this.handleOpen(member)} key={member.C_ID} variant='primary'>
+                          {member.C_NAME}
                           </Alert>
 
 
@@ -277,14 +269,14 @@ export default class hero extends Component {
 
                   </Modal.Header>
                   <Card style={{ width: '31rem' }}>
-                    <Card.Img variant="top" src={this.state.candidateParty} />
+                    <Card.Img variant="top"  src={this.state.candidateParty} />
                     <Card.Body>
                       <Card.Title>{this.state.candidateName}</Card.Title>
                       <Card.Text>
-                        <h1>
-
+                        <h4>
+                          මනාප අංකය
                           <Badge variant="success">{this.state.candidateId}</Badge>
-                        </h1>
+                        </h4>
 
                       </Card.Text>
 
